@@ -1,12 +1,28 @@
 import { useState } from "react";
 import TodoTask from "./components/TodoTask/TodoTask";
+import { ITask } from "./Interfaces";
 
 import './styles/styles.css'
+
+
 
 function App() {
 
 	const [task, setTask] = useState<string>('')
-	const [todoList, setTodoList] = useState([])
+	const [todoList, setTodoList] = useState<ITask[]>([])
+
+	function addTask() {
+		const idRandom = (num:number) => Math.random() * num
+
+		const newTask = {id: idRandom(9999999999999), nameTask: task}
+
+		setTodoList([...todoList, newTask])
+
+	}
+
+	function deleteTask(DeleteTaskById: number): void {
+		setTodoList(todoList.filter((taskName) => taskName.id !== DeleteTaskById))
+	}
 
 
 	return (
@@ -25,12 +41,20 @@ function App() {
 					className="input"
 				/>
 
-				<button type="submit" className="btn-header">Adicionar Lista</button>
+				<button type="submit" className="btn-header" onClick={addTask}>Adicionar Lista</button>
 			</header>
 			
 			<div className="line"></div>
 
-			<TodoTask />
+			
+
+
+			{todoList.map((task, key) => (
+
+                 <TodoTask key={key} task={task} deleteTask={deleteTask} />
+
+
+			))}
 			
 		</div>
 	);
