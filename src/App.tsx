@@ -12,12 +12,15 @@ function App() {
 	const [todoList, setTodoList] = useState<ITask[]>([])
 
 	function addTask() {
-		const idRandom = (num:number) => Math.random() * num
+
+		if(task === '') {
+			alert('Insira uma nova TASK!')
+		} else {
+			const idRandom = (num:number) => Math.random() * num
 
 		const newTask = {id: idRandom(9999999999999), nameTask: task}
 
 		setTodoList([...todoList, newTask])
-
 	}
 
 	function deleteTask(DeleteTaskById: number): void {

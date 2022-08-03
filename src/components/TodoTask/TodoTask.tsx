@@ -14,7 +14,7 @@ function TodoTask({ task, deleteTask }: Taskprops) {
                 <p>{task.nameTask}</p>
             </div>
 
-            <div className="line2" >
+            <div className="line2">
             <span className="btn-card" onClick={() => deleteTask(task.id)}>X</span>
             </div>
 		</div>
