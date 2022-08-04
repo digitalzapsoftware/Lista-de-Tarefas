@@ -6,7 +6,7 @@ import './styles/styles.css'
 
 
 
-function App() {
+ function App() {
 
 	const [task, setTask] = useState<string>('')
 	const [todoList, setTodoList] = useState<ITask[]>([])
@@ -60,6 +60,6 @@ function App() {
 			
 		</div>
 	);
-}
+}}
 
-export default App;
+export default App
