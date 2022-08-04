@@ -56,7 +56,6 @@ function App() {
 
                  <TodoTask key={key} task={task} deleteTask={deleteTask} />
 
-
 			))}
 			
 		</div>
